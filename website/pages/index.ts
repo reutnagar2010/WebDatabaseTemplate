@@ -6,7 +6,8 @@ var itemInput = document.querySelector<HTMLInputElement>("#itemInput")!;
 var amountInput = document.querySelector<HTMLInputElement>("#amountInput")!;
 var addButton = document.querySelector<HTMLButtonElement>("#addButton")!;
 var itemsUl = document.querySelector<HTMLUListElement>("#itemsUl")!;
-
+var title = document.querySelector("#title")
+var title = document.querySelector("#asafnagar")
 var items = await send<Item[]>("getItems");
 
 for (var i = 0; i < items.length; i++) {
