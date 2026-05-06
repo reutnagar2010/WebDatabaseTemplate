@@ -52,9 +52,9 @@ class Database() : DatabaseCore("database")
   public DbSet<Item> Items { get; set; } = default!;
 }
 
-class Item(string name, double amount)
+class movie(string name, string imageUrl, string description, string length, string age, string ticP, string totP)
 {
   public int Id { get; set; } = default!;
   public string Name { get; set; } = name;
-  public double Amount { get; set; } = amount;
+  public string ImageUrl { get; set; } = imageUrl;
 }

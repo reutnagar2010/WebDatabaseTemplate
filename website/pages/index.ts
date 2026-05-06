@@ -21,3 +21,5 @@ addButton.onclick = async function() {
   await send("addItem", itemInput.value, parseInt(amountInput.value));
   location.reload();
 };
+
+
