@@ -1,35 +1,27 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="/website/styles/general.css" />
-    <link rel="stylesheet" href="signUp.css" />
-    <title>Sign Up</title>
-  </head>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>הרשמה</title>
+  <link rel="stylesheet" href="signUp.css" />
+</head>
+<body>
 
-  <body>
-    <div id="boxDiv">
-      <h1>Sign Up</h1>
+<div class="box">
+  <h2>Sign Up</h2>
 
-      <table>
-        <tr>
-          <td>Username:</td>
-          <td><input id="usernameInput" /></td>
-        </tr>
-        <tr>
-          <td>Password:</td>
-          <td><input id="passwordInput" type="password"/></td>
-        </tr>
-        <tr>
-          <td>Confirm:</td>
-          <td><input id="confirmInput" type="password"/></td>
-        </tr>
-      </table>
-      <br />
-      <button id="submitButton">Submit</button>
-      <br />
-      <div id="errorDiv"></div>
-    </div>
+  <input id="usernameInput" type="text" placeholder="username">
+  <input id="passwordInput" type="password" placeholder="password">
+  <input id="confirmPasswordInput" type="password" placeholder="confirm password">
 
-    <script type="module" src="signUp.js"></script>
-  </body>
+  <button id="submitButton">Sign Up</button>
+
+  <div id="errorDiv" style="color:rgb(255, 0, 0); margin-top:10px;"></div>
+
+  <a href="login.html">Do you have an account already? log in</a>
+</div>
+
+<script type="module" src="signUp.js"></script>
+
+</body>
 </html>

@@ -41,6 +41,7 @@
     button:hover {
       background: #5a0c0c;
       font-size: 24px;
+    ;
     }
 
     a {
@@ -51,7 +52,7 @@
       font-size: 14px;
     }
 
-    #errorDiv{
-      color:rgb(255, 0, 0);
-       margin-top:10px;
+    #errorDiv {
+        color:red; 
+        margin-top:10px;
     }

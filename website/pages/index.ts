@@ -9,6 +9,7 @@ var itemsUl = document.querySelector<HTMLUListElement>("#itemsUl")!;
 var title = document.querySelector("#title")
 var title = document.querySelector("#asafnagar")
 var items = await send<Item[]>("getItems");
+var logIn = document.querySelector<HTMLButtonElement>("#tab1")!;
 
 for (var i = 0; i < items.length; i++) {
   var itemLi = create("li");
