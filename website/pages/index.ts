@@ -1,25 +1,21 @@
-import type { Item } from "types";
 import { send } from "clientUtilities";
-import { create } from "componentUtilities";
+import { create, get } from "componentUtilities";
+import { Movie } from "types";
 
-var itemInput = document.querySelector<HTMLInputElement>("#itemInput")!;
-var amountInput = document.querySelector<HTMLInputElement>("#amountInput")!;
-var addButton = document.querySelector<HTMLButtonElement>("#addButton")!;
-var itemsUl = document.querySelector<HTMLUListElement>("#itemsUl")!;
-var title = document.querySelector("#title")
-var title = document.querySelector("#asafnagar")
-var items = await send<Item[]>("getItems");
-var logIn = document.querySelector<HTMLButtonElement>("#tab1")!;
+var moviesDiv = get("div", "moviesDiv");
 
-for (var i = 0; i < items.length; i++) {
-  var itemLi = create("li");
-  itemLi.innerText = `${items[i].amount} ${items[i].name}`;
-  itemsUl.append(itemLi);
+var movies = await send<Movie[]>("getMovies");
+
+for (var i = 0; i < movies.length; i++) {
+  var movieImg = create("a", {href: `movie.html?id=${movies[i].id}`}, 
+    create("img", {className: "movieImg", src: movies[i].imageUrl})
+  );
+
+  moviesDiv.append(movieImg);
 }
 
-addButton.onclick = async function() {
-  await send("addItem", itemInput.value, parseInt(amountInput.value));
-  location.reload();
-};
+console.log(movies);
+
+
 
 

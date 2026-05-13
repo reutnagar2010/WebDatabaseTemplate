@@ -39,53 +39,13 @@ body{
   position: sticky;
 
 }
-#upimage{
-  height: 300px;
-  width: auto;
-  margin-left: 20px;
-  margin-top: 10px;
-  border:  2px, transparent;
-  border-radius:18px;    
-
-}
-
-#toyimage{
+.movieImg {
   height: 300px;
   width: auto;
   margin-left: 20px;
   margin-top: 10px;
   border:  2px, transparent;
   border-radius:18px;
-
-}
-#rioimage{
-  height: 300px;
-  width: auto;
-  margin-left: 20px;
-  margin-top: 10px;
-  border:  2px, transparent;
-  border-radius:18px;
-
-}
-
-#avatarimage{
-  height: 300px;
-  width: auto;
-  margin-left: 20px;
-  margin-top: 10px;
-  border:  2px, transparent;
-  border-radius:18px;
-
-}
-
-#meangirlsimage{
-  height: 300px;
-  width: auto;
-  margin-left: 20px;
-  margin-top: 10px;
-  border:  2px, transparent;
-  border-radius:18px;
-
 }
 
 #subtitle{
