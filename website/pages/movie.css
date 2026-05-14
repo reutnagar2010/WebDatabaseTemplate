@@ -1,3 +1,30 @@
-body{
-background-color: #fff;
+body {
+  margin: 0;
+  background-color: black;
+}
+
+#containerDiv {
+  /* width: 100vw; */
+  height: 100vh;
+  position: relative;
+}
+
+#backgroundDiv {
+  position: fixed;
+
+  /* background-color: black; */
+  /* background-size: auto 100%; */
+  /* background-repeat: no-repeat; */
+  width: 639.5px;
+  height: 100%;
+  z-index: 15;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+
+#backgroundImg {
+  position: fixed;
+  height: 100vh;
+  width: auto;
+  display: block;
+
 }

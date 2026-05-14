@@ -3,7 +3,7 @@ import { create, get } from "componentUtilities";
 import { Movie } from "types";
 
 var title = get("div", "title");
-var image = get("img", "image");
+var image = get("img", "backgroundImg");
 
 var movieId = parseInt(getSearchParam("id")!);
 
@@ -14,7 +14,7 @@ if (movie == null) {
     
 }
 else {
-    title.innerText = movie.name;
+    // title.innerText = movie.name;
     image.src = movie.imageUrl;
 }
 

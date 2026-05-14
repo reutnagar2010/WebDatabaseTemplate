@@ -6,4 +6,5 @@ export type Movie = {
   duration: number,
   age: number,
   ticketPrice: number,
+  imageUrl2: string,
 };
