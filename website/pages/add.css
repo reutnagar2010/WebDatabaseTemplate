@@ -1,0 +1,58 @@
+#descriptionTextarea {
+  width: 170%;
+  padding: 30px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+#movieNameInput{
+    width: 200%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+#imgUrlInput{
+    width: 200%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+#durationInput{
+    width: 70%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+#ageInput{
+    width: 70%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+} 
+#ticketPriceInput{
+    width: 70%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+
+.box{
+  background: rgba(255, 255, 255, 0.5);
+  padding: 50px;
+  border-radius: 15px;
+  width: 430px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+}
+
