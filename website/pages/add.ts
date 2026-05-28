@@ -24,13 +24,13 @@ submitButton.onclick = async function () {
   var ticketPrice = ticketPriceInput.value.trim();
   var description = descriptionTextarea.value.trim();
 
-  if (movieName == "" || duration == "" || imageUrl == "" || age == "" || ticketPrice == "" || description == "") {
+  if (movieName == "" || imageUrl == "" || duration == "" || age == "" || ticketPrice == "" || description == "") {
     errorDiv.innerText = "All fields are required.";
     return;
   }
 
   errorDiv.innerText = "";
 
-  await send("addMovie", movieName, duration, imageUrl, age, ticketPrice, description);
+  await send("addMovie", movieName, imageUrl, parseInt(duration), parseInt(age), parseInt(ticketPrice), description);
   location.href = "index.html";
 }

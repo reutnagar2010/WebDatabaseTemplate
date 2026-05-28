@@ -51,8 +51,8 @@ class Program
         }
         else if (request.Name == "addMovie")
         {
-          var (movieName, duration, imageUrl, age, ticketPrice, description) = request.GetParams<(string, int, string, int, int, string)>();
-          AddMovie(database, movieName, duration, imageUrl, age, ticketPrice, description);
+          var (movieName, imageUrl, duration, age, ticketPrice, description) = request.GetParams<(string, string, int, int, int, string)>();
+          AddMovie(database, movieName, imageUrl, duration, age, ticketPrice, description);
         }
 
 
@@ -65,10 +65,10 @@ class Program
     }
   }
 
-  static void AddMovie(Database database, string movieName, int duration, string imageUrl, int age, int ticketPrice, string description)
+  static void AddMovie(Database database, string movieName, string imageUrl, int duration, int age, int ticketPrice, string description)
   {
 
-    database.Movies.Add(new Movie(movieName, description, imageUrl, age, ticketPrice, duration ));
+    database.Movies.Add(new Movie(movieName, imageUrl, description, duration, age, ticketPrice));
     database.SaveChanges();
   }
 }

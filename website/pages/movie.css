@@ -4,17 +4,12 @@ body {
 }
 
 #containerDiv {
-  /* width: 100vw; */
   height: 100vh;
   position: relative;
 }
 
 #backgroundDiv {
   position: fixed;
-
-  /* background-color: black; */
-  /* background-size: auto 100%; */
-  /* background-repeat: no-repeat; */
   width: 639.5px;
   height: 100%;
   z-index: 15;
@@ -27,4 +22,43 @@ body {
   width: auto;
   display: block;
 
+}
+
+#infoDiv {
+  position: fixed;
+  margin-left: 700px;
+  margin-top: 30px;
+  top: 0;
+}
+
+#title {
+ color: white;
+ font-size: 100px;
+ text-shadow: 0 0 30px #fff ;
+}
+
+#description{
+  color:aliceblue;
+  font-size: 40px;
+  margin-top: 27px;
+}
+
+#Duration{
+  color:aliceblue;
+  font-size: 30px;
+  margin-top: 27px;
+}
+
+#Age{
+  color:aliceblue;
+  font-size: 30px;
+  margin-top: 27px;
+}
+
+#TicketPrice{
+  background-color: beige;
+  color:rgb(255, 255, 255);
+  border-radius: 50px;
+  font-size: 40px;
+  margin-top: 27px;
 }
