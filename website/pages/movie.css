@@ -57,8 +57,40 @@ body {
 
 #TicketPrice{
   background-color: beige;
-  color:rgb(255, 255, 255);
-  border-radius: 50px;
+  color:rgb(0, 0, 0);
+  border-radius: 20px;
   font-size: 40px;
   margin-top: 27px;
+ ;
 }
+
+#c1 {
+  width: 10px;
+  height: 53px;
+  margin-left: 700px;
+  padding: 20px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  background: beige;
+  border: none;
+  cursor: pointer;
+  margin-top: 27px;
+}
+
+.ChairButton{
+  width: 10px;
+  height: 53px;
+  margin-left: 10px;
+  padding: 20px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  background: beige;
+  border: none;
+  cursor: pointer;
+  margin-top: 27px;
+}
+
+.ChairButton:hover {
+  background:rgb(187, 187, 168);
+}
+

@@ -8,10 +8,12 @@ var description = get("div", "description")
 let duration = get("div", "Duration");
 var age = get("div", "Age")
 var ticketPrice = get("div", "TicketPrice")
+var ChairDiv = get("div", "ChairDiv")
 
 var movieId = parseInt(getSearchParam("id")!);
 
 var movie = await send<Movie | null>("getMovie", movieId);
+var ch
 
 if (movie == null) {
     location.href = "404.html";      
@@ -20,9 +22,14 @@ else {
     image.src = movie.imageUrl;
     title.innerText = movie.name;
     description.innerText = movie.description
-    duration.textContent = String(movie.duration) + "+ "; 
+    duration.textContent = String(movie.duration) + " minutes "; 
     age.textContent = String(movie.age) + "+ ";
     ticketPrice.textContent = String(movie.ticketPrice) + "₪";
 
 }
 
+for(var i = 0; i < 30; i++){
+var Chair = create("button", {className: "ChairButton"});
+
+ChairDiv.append(Chair)
+}
