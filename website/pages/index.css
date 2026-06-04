@@ -45,6 +45,10 @@ body{
   border-radius:18px;
 }
 
+.movieImg:hover{
+transform: translateY(-8px) scale(1.02);
+}
+
 #subtitle{
   color: #fff;
   margin-top: 400px;

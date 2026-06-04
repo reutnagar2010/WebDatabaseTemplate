@@ -24,11 +24,11 @@ class Program
 
     if (database.IsNewlyCreated)
     {
-      database.Movies.Add(new Movie("Up", "https://m.media-amazon.com/images/I/71MRrvu3zPL.jpg", "enter description later", 120, 13, 45));
-      database.Movies.Add(new Movie("Toy Story", "https://m.media-amazon.com/images/I/71aBLaC4TzL.jpg", "enter description later", 120, 13, 45));
-      database.Movies.Add(new Movie("Rio", "https://upload.wikimedia.org/wikipedia/en/b/bb/Rio2011Poster.jpg", "enter description later", 120, 13, 45));
-      database.Movies.Add(new Movie("Avatar", "https://lumiere-a.akamaihd.net/v1/images/avatar_800x1200_208c9665.jpeg", "enter description later", 120, 13, 45));
-      database.Movies.Add(new Movie("Mean Girls", "https://www.movieposters.com/cdn/shop/files/meangirls.24x36_1024x1024.jpg?v=1762968678", "enter description later", 120, 13, 45));
+      database.Movies.Add(new Movie("Up", "https://m.media-amazon.com/images/I/71MRrvu3zPL.jpg", "enter description later", 96, 5, 45));
+      database.Movies.Add(new Movie("Toy Story", "https://m.media-amazon.com/images/I/71aBLaC4TzL.jpg", "enter description later", 81, 3, 45));
+      database.Movies.Add(new Movie("Rio", "https://upload.wikimedia.org/wikipedia/en/b/bb/Rio2011Poster.jpg", "enter description later", 96, 3, 45));
+      database.Movies.Add(new Movie("Avatar", "https://lumiere-a.akamaihd.net/v1/images/avatar_800x1200_208c9665.jpeg", "enter description later", 161, 13, 45));
+      database.Movies.Add(new Movie("Mean Girls", "https://www.movieposters.com/cdn/shop/files/meangirls.24x36_1024x1024.jpg?v=1762968678", "girl who joins a popular high school clique and gets caught up in drama and gossip. She later realizes its toxic and tries to fix her mistakes while learning to be herself.", 97, 13, 45));
 
       database.Chairs.Add(new Chair(1));
       database.Chairs.Add(new Chair(2));

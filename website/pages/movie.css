@@ -32,65 +32,73 @@ body {
 }
 
 #title {
- color: white;
- font-size: 100px;
- text-shadow: 0 0 30px #fff ;
+  color: white;
+  font-size: 100px;
+  text-shadow: 0 0 30px #fff;
 }
 
-#description{
-  color:aliceblue;
+#description {
+  color: aliceblue;
   font-size: 40px;
   margin-top: 27px;
 }
 
-#Duration{
-  color:aliceblue;
+#Duration {
+  color: aliceblue;
   font-size: 30px;
   margin-top: 27px;
 }
 
-#Age{
-  color:aliceblue;
+#Age {
+  color: aliceblue;
   font-size: 30px;
   margin-top: 27px;
 }
 
-#TicketPrice{
+#TicketPrice {
   background-color: beige;
-  color:rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
   border-radius: 20px;
   font-size: 40px;
   margin-top: 27px;
- ;
+  ;
 }
 
-#c1 {
-  width: 10px;
-  height: 53px;
-  margin-left: 700px;
-  padding: 20px;
+.ChairButton {
+  width: 26px;
+  height: 69px;
+  padding: 26px;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   background: beige;
   border: none;
   cursor: pointer;
-  margin-top: 27px;
-}
-
-.ChairButton{
-  width: 10px;
-  height: 53px;
-  margin-left: 10px;
-  padding: 20px;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  background: beige;
-  border: none;
-  cursor: pointer;
-  margin-top: 27px;
+  margin-top: 25px;
 }
 
 .ChairButton:hover {
-  background:rgb(187, 187, 168);
+  background: rgb(122, 122, 111);
+  transform: translateY(-4px) scale(1.02);
 }
 
+.chosenChair {
+  background: rgb(122, 122, 111);
+}
+
+
+.rowDiv {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+#ChairDiv {
+  margin-top: -52px;
+  margin-left: 300px;
+  width: 620px;
+  background-color: rgba(240, 243, 230, 0.678);
+  border-bottom-left-radius: 40%;
+  border-bottom-right-radius: 40%;
+  padding-bottom: 52px;
+  box-shadow: 0 0 30px #fff;
+}

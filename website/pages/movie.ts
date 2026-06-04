@@ -2,34 +2,57 @@ import { getSearchParam, send } from "clientUtilities";
 import { create, get } from "componentUtilities";
 import { Movie } from "types";
 
-var image = get("img", "backgroundImg");
-var title = get("div", "title");
-var description = get("div", "description")
+let image = get("img", "backgroundImg");
+let title = get("div", "title");
+let description = get("div", "description")
 let duration = get("div", "Duration");
-var age = get("div", "Age")
-var ticketPrice = get("div", "TicketPrice")
-var ChairDiv = get("div", "ChairDiv")
+let age = get("div", "Age")
+let ticketPrice = get("div", "TicketPrice")
+let ChairDiv = get("div", "ChairDiv")
 
-var movieId = parseInt(getSearchParam("id")!);
+let movieId = parseInt(getSearchParam("id")!);
 
-var movie = await send<Movie | null>("getMovie", movieId);
-var ch
+let movie = await send<Movie | null>("getMovie", movieId);
 
 if (movie == null) {
-    location.href = "404.html";      
+    location.href = "404.html";
 }
 else {
     image.src = movie.imageUrl;
     title.innerText = movie.name;
     description.innerText = movie.description
-    duration.textContent = String(movie.duration) + " minutes "; 
+    duration.textContent = String(movie.duration) + " minutes ";
     age.textContent = String(movie.age) + "+ ";
     ticketPrice.textContent = String(movie.ticketPrice) + "₪";
 
 }
 
-for(var i = 0; i < 30; i++){
-var Chair = create("button", {className: "ChairButton"});
+let chosenChairs: number[] = [];
 
-ChairDiv.append(Chair)
+let chairI = 0;
+
+for (let j = 0; j < 4; j++) {
+    let rowDiv = create("div", { className: "rowDiv" });
+    ChairDiv.append(rowDiv);
+    for (let i = 0; i < 9 - j; i++) {
+        const currentChairI = chairI;
+
+        let Chair = create("button", { className: "ChairButton" });
+        Chair.onclick = function () {
+            const index = chosenChairs.indexOf(currentChairI);
+            if (index !== -1) { 
+            Chair.classList.remove("chosenChair");
+            chosenChairs.splice(index, 1);
+            }
+            else{
+            chosenChairs.push(currentChairI);
+            Chair.classList.add("chosenChair");
+            console.log(chosenChairs);
+            }
+        };
+        rowDiv.append(Chair);
+
+        chairI++;
+    }
 }
+
