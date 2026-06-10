@@ -53,15 +53,31 @@ body {
   color: aliceblue;
   font-size: 30px;
   margin-top: 27px;
+  margin-left: 30px;
 }
 
 #TicketPrice {
-  background-color: beige;
-  color: rgb(0, 0, 0);
-  border-radius: 20px;
+  color: aliceblue;
   font-size: 40px;
   margin-top: 27px;
-  ;
+}
+
+#TicketPriceDiv{
+  color: aliceblue;
+  font-size: 30px;
+  margin-top: 300px;
+}
+
+#TotalPrice {
+  color: aliceblue;
+  font-size: 40px;
+  margin-top: 27px;
+}
+
+#TotalPriceDiv{
+  color: aliceblue;
+  font-size: 30px;
+  margin-top: 10px;
 }
 
 .ChairButton {
@@ -93,12 +109,84 @@ body {
 }
 
 #ChairDiv {
-  margin-top: -52px;
-  margin-left: 300px;
+  margin-top: -352px;
+  margin-left: 400px;
   width: 620px;
   background-color: rgba(240, 243, 230, 0.678);
   border-bottom-left-radius: 40%;
   border-bottom-right-radius: 40%;
   padding-bottom: 52px;
   box-shadow: 0 0 30px #fff;
+}
+
+#SubmitButton{
+width: 300px;
+height: 70px;
+font-size: 50px;
+margin-top: -52px;
+margin-left: 20px;
+border: 0px;
+border-radius: 30px;
+background: rgba(205, 207, 196);
+box-shadow: 0 0 30px #fff;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modalContent {
+    background: rgba(205, 207, 196);
+    width: 600px;
+    height: 375px;
+
+    padding: 30px;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    box-shadow: 0 20px 60px rgba(255, 255, 255, 0.4);
+}
+
+.modalContent h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.modalContent p {
+    font-size: 25px;
+    margin: 10px 0;
+}
+
+/* כפתור X */
+.closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+
+    font-size: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    color: black;
+}
+
+.closeBtn:hover {
+    color: rgb(105, 9, 9);
 }

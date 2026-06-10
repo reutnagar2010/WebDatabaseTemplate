@@ -88,13 +88,7 @@ class Program
           var (movieName, imageUrl, duration, age, ticketPrice, description) = request.GetParams<(string, string, int, int, int, string)>();
           AddMovie(database, movieName, imageUrl, duration, age, ticketPrice, description);
         }
-        // else if (request.Name == "signUp")
-        // {
-        //   var (username, password, conect)= request.GetParams<(string, string, bool)>();    
-        //   AddUser(database, username, password, conect);
-        // }
-
-
+      
       }
       catch (Exception exception)
       {
@@ -102,6 +96,7 @@ class Program
         Log.WriteException(exception);
       }
     }
+    
   }
 
   static void AddMovie(Database database, string movieName, string imageUrl, int duration, int age, int ticketPrice, string description)
@@ -110,21 +105,13 @@ class Program
     database.Movies.Add(new Movie(movieName, imageUrl, description, duration, age, ticketPrice));
     database.SaveChanges();
   }
-  // static void AddUser(Database database, string username, string password, bool conect)
-
-  // {
-
-  //   database.Users.Add(new User(username, password, conect));
-  //   database.SaveChanges();
-  // }
-}
 
 
 class Database() : DatabaseCore("database")
 {
   public DbSet<Movie> Movies { get; set; } = default!;
-  // public DbSet<User> Users { get; set; } = default!;
-    public DbSet<Chair> Chairs { get; set; } = default!;
+  public DbSet<User> Users { get; set; } = default!;
+  public DbSet<Chair> Chairs { get; set; } = default!;
 
 }
 
@@ -139,16 +126,15 @@ class Movie(string name, string imageUrl, string description, int duration, int 
   public int TicketPrice { get; set; } = ticketPrice;
 }
 
-// class User(string username, string password, bool conect)
-// {
-//     public int Id { get; set; } = default!;
-//     public string Username { get; set; } = username;
-//     public string Password { get; set; } = password;
-//     public bool Conect { get; set; } = conect;
-// }
+class User(string username, string password)
+{
+  public int Id { get; set; } = default!;
+  public string Username { get; set; } = username;
+  public string Password { get; set; } = password;
+}
 
 class Chair(int chairNum){
   public int Id { get; set; } = default!;
   public int ChairNum { get; set; } = chairNum;
 }
-
+}

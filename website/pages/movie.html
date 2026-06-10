@@ -15,11 +15,36 @@
   <div id="infoDiv">
     <div id="title"></div>
     <div id="description"></div>
-    <div id="Duration"></div>
-    <div id="Age"></div> 
-    <button id="TicketPrice"></button>
+    <br>
+    <span id="Duration"></span>
+    <span id="Age"></span>
+    <div id="TicketPriceDiv">
+      Ticket Price: 
+    <span id="TicketPrice"></span>      
+    </div>
+    <div id="TotalPriceDiv">
+      Total Price: 
+    <span id="TotalPrice"></span>
+    </div>
   <div id="ChairDiv"></div>
+  <button id="SubmitButton">submit</button>
   </div>
+  <div id="successModal" class="modal">
+    <div class="modalContent">
+        <span id="closeModal" class="closeBtn">×</span>
+        <h2>Congratulations!</h2>
+        <p>Your booking is complete.</p>
+        <p>We’ll see you soon!</p>
+    </div>
+  </div>
+    <div id="failModal" class="modal">
+    <div class="modalContent">
+        <span id="closeFailModal" class="closeBtn">×</span>
+        <h2>Oops!</h2>
+        <p>Your purchase was not completed.</p>
+        <p>You didn’t select any tickets. Please try again.</p>
+    </div>
+</div>
   
   <script type="module" src="movie.js"></script>
 
