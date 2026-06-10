@@ -5,7 +5,46 @@
   <link rel="stylesheet" href="index.css" />
   <title>CinemaLand</title>
 </head>
-<header>
+
+<body>
+
+  <div class="background"></div>
+
+  <div id="header">
+    <span class="title">CinemaLand</span>
+    <a id="signup-button" class="button" href="signUp.html">Sign up</a>
+    <a id="login-button" class="button" href="login.html">Log in</a>
+  </div>
+
+  <div id="main-screen">
+
+    <div class="title-group">
+      <span class="title">CinemaLand</span>
+      <span class="sub-title">Movie Booking</span>
+      <p class="info">A simple and user-friendly website<br>where users can browse movies, choose sits<br>and book tickets online quickly and easily</p>
+    </div>
+    
+    <div class="movie-section">
+      <span class="title">Hot now:</span>
+      <div id="hot-now-movies-div" class="movies-div"></div>
+    </div>
+
+    <div class="movie-section">
+      <span class="title">Horror:</span>
+      <div id="horror-movies-div" class="movies-div"></div>
+    </div>
+
+    <div class="movie-section">
+      <span class="title">Comedy:</span>
+      <div id="comedy-movies-div" class="movies-div"></div>
+    </div>
+
+  </div>
+  <script type="module" src="index.js"></script>
+</body>
+
+
+<!-- <header>
   <div id="title">CinemaLand</div>
 </header>
 
@@ -25,4 +64,4 @@
     <div id="moviesDiv"></div>
     <a id="addA" href="add.html">+</a>
     <script type="module" src="index.js"></script>
-</body>
+</body> -->

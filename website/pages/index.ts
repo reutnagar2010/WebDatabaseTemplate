@@ -2,7 +2,7 @@ import { send } from "clientUtilities";
 import { create, get } from "componentUtilities";
 import { Movie } from "types";
 
-var moviesDiv = get("div", "moviesDiv");
+var moviesDiv = get("div", "hot-now-movies-div");
 
 var movies = await send<Movie[]>("getMovies");
 
@@ -15,7 +15,3 @@ for (var i = 0; i < movies.length; i++) {
 }
 
 console.log(movies);
-
-
-
-

@@ -15,4 +15,5 @@
     ".codex": true,
   },
   "js/ts.preferences.importModuleSpecifier": "non-relative",
+  "liveServer.settings.port": 5501,
 }
