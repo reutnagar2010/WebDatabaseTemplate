@@ -1,29 +1,35 @@
 import { send } from "clientUtilities";
 import { get } from "componentUtilities";
 
-var usernameInput = get("input", "usernameInput");
-var passwordInput = get("input", "passwordInput");
-var submitButton = get("button", "submitButton");
-var errorDiv = get("div", "errorDiv");
+const usernameInput = get("input", "usernameInput");
+const passwordInput = get("input", "passwordInput");
+const submitButton = get("button", "submitButton");
+const errorDiv = get("div", "errorDiv");
 
-
-var token = localStorage.getItem("token");
+usernameInput.oninput = () => errorDiv.innerText = "";
+passwordInput.oninput = () => errorDiv.innerText = "";
 
 submitButton.onclick = async function () {
-  errorDiv.innerText = "";
 
-  var token = await send<string | null>(
-    "logIn",
-    usernameInput.value,
-    passwordInput.value
-  );
+  var username = usernameInput.value.trim();
+  var password = passwordInput.value.trim();
 
-  if (!token) {
-    errorDiv.innerText = "Invalid username or password";
-    return;
+  if (username == "") {
+    errorDiv.innerText = "Please fill out the username fild!";
+    usernameInput.focus();
   }
-
-  localStorage.setItem("token", token);
-
-  location.href = "index.html";
+  else if (password == "") {
+    errorDiv.innerText = "Please fill out the password fild!";
+    passwordInput.focus();
+  }
+  else {
+    var stringOrNullToken = await send("logIn", username, password);
+    if (stringOrNullToken == null) {
+      errorDiv.innerText = "Invalid username or password.";
+    }
+    else {
+      localStorage.setItem("token", stringOrNullToken);
+      location.href = "index.html";
+    }
+  }
 };

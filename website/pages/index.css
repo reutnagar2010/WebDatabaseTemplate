@@ -27,6 +27,7 @@ body {
   z-index: -1;
 }
 #header {
+  background: linear-gradient(black, rgb(124, 0, 0), black);
   position: sticky;
   top: 0;
   left: 0;
@@ -41,20 +42,25 @@ body {
   font-family: "Abril Fatface", serif;
   font-size: 7vh;
 }
+#welcome-title{
+  font-family: "Abril Fatface", serif;
+  margin-left: auto;
+  margin-right: 2vh;
+  font-size: 3vh;
+}
 #header a {
   text-decoration: none;
 }
 #header .button {
   color: var(--color-1);
-  font-size: 3vh;
+  font-size: 2.3vh;
   height: fit-content;
-  border: 2px solid var(--color-1);
+  border: 0.3vh solid var(--color-1);
   border-radius: 10px;
   padding: 5px;
 }
 #signup-button {
-  margin-left: auto;
-  margin-right: 2vh;
+  margin-right: 1vh;
 }
 #main-screen {
   height: fit-content;
@@ -90,8 +96,33 @@ body {
   margin: 0;
 }
 .movie-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 2vh;
   width: 100%;
+  margin-top: 10vh;
 }
 .movie-section .title {
   font-size: 4vh;
+}
+
+.movies-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  gap: 3vh;
+}
+
+.movieImg{
+  height: 30vh;
+  width: 20vh;
+  border-radius: 20px;
+  box-shadow:0 0 30px #000000;
+}
+
+.movieImg:hover{
+  transform: translateY(-1vh) scale(1.02);
 }

@@ -59,8 +59,8 @@ for (let j = 0; j < 4; j++) {
             else{
             chosenChairs.push(currentChairI);
             Chair.classList.add("chosenChair");
-            console.log(chosenChairs);
             totalPrice += movie.ticketPrice
+            console.log(chosenChairs)
             }
             TotalPrice.textContent = String(totalPrice)+ "₪";
            
@@ -82,8 +82,6 @@ SubmitButton.onclick = function () {
     failModal.classList.remove("show");
     successModal.classList.add("show");
 
-    // איפוס נתונים
-    chosenChairs = [];
     totalPrice = 0;
     TotalPrice.textContent = "0₪";
 };

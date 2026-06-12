@@ -3,8 +3,15 @@ export type Movie = {
   name: string,
   imageUrl: string,
   description: string,
+  type: number,
   duration: number,
   age: number,
+  year: number,
   ticketPrice: number,
-  imageUrl2: string,
 };
+
+export type User = {
+  id: string,
+  username: string,
+  password: string,
+}
