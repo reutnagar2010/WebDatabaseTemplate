@@ -13,24 +13,37 @@
 
         <table>
           <tr>
-            <td>Movie name:</td>
+            <td class="inputTitle">Movie name:</td>
             <td><input id="movieNameInput" type="text" placeholder="Movie name" /></td>
           </tr>
           
           <tr>
-            <td>Image URL:</td>
+            <td class="inputTitle">Image URL:</td>
             <td><input id="imgUrlInput" type="url" placeholder="Image URL"/></td>
           </tr>
 
           <tr>
-            <td> Duration: <input id="durationInput" type="number" placeholder="Duration" /></td>
-            <td> Age: <input id="ageInput" type="number" placeholder="Age" /></td>
-            <td>Ticket price: <input id="ticketPriceInput" type="number" placeholder="Ticket price" /></td>
-          
+            <td class="inputTitle">Type:</td>
+            <td><select id="typeInput">
+              <option value="0">Choose</option>
+              <option value="1">Hot now</option>
+              <option value="2">Action</option>
+              <option value="3">Comedy</option>
+              <option value="4">Fantasy</option>
+              <option value="5">Family</option>
+              <option value="6">Horror</option>
+            </select></td>
+            </tr>
+
+          <tr>
+            <td class="inputTitle"> Duration: <input id="durationInput" type="number" placeholder="Duration" /></td>
+            <td class="inputTitle"> Age: <input id="ageInput" type="number" placeholder="Age" /></td>
+            <td class="inputTitle">Year: <input id="yearInput" type="number" placeholder="Year" /></td>
+            <td class="inputTitle">Ticket price: <input id="ticketPriceInput" type="number" placeholder="Ticket price" /></td>
           </tr>
         
           <tr>
-            <td>Description:</td>
+            <td class="inputTitle">Description:</td>
             <td><textarea id="descriptionTextarea" rows="4" type="text"></textarea></td>
           </tr>
         </table>

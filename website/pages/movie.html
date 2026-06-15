@@ -12,12 +12,68 @@
     <img id="backgroundImg"></img>
     <div id="backgroundDiv"></div>
   </div>
+
+  <div id="mainContent">
+    
+    <div id="movieInfo">
+      <span id="title"></span>
+      <div id="movieDetails">
+        <span id="type"></span>
+        <span id="duration"></span>
+        <span id="age"></span>
+        <span id="year"></span>
+      </div>
+      <span id="description"></span>
+    </div>
+
+    <div id="movieChairs">
+      <span id="chairsTitle">Select Chairs:</span>
+      <div id="instructions">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="avaliableIcon" class="dotIcon"><circle cx="12" cy="12" r="10"/></svg>
+        <span id="avaliable" class="instructionsTitle">Avaliavle</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="selectedIcon" class="dotIcon"><circle cx="12" cy="12" r="10"/></svg>
+        <span id="selected" class="instructionsTitle">Selcted</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="notAvaliableIcon" class="dotIcon"><circle cx="12" cy="12" r="10"/></svg>
+        <span id="notAvaliable" class="instructionsTitle">Not Avaliavle</span>
+
+      </div>
+      <div id="chairDiv"></div>
+      <div id="screen">Screen</div>
+    </div>
+
+    <div id="movieTickets">
+      <div id="prices">
+        <span id="ticketPrice"></span>
+        <span id="totalPrice"></span>
+      </div>
+      <button id="buyButton">Buy Now</button>
+    </div>
+  </div>
+
+  <div id="modalBackground" class="modalBackground">
+    <div id="successModal" class="modal">
+      <button id="successCloseButton" class="closeButton">×</button>
+      <span>Congratulations!</span>
+      <p>Your booking is complete.<br>We’ll see you soon!</p>
+    </div>
+    <div id="failModal" class="modal">
+      <button id="failCloseButton" class="closeButton">×</button>
+      <span>Oops!</span>
+      <p>Your purchase was not completed.<br>You didn’t select any tickets. Please try again.</p>
+    </div>
+  </div>
+  
+
+  
+
+<!-- 
   <div id="infoDiv">
-    <div id="title"></div>
-    <div id="description"></div>
-    <br>
-    <span id="Duration"></span>
-    <span id="Age"></span>
+    <span id="title"></span>
+    <span id="description"></span>
+    <div id="movieInfo">
+      <span id="Duration"></span>
+      <span id="Age"></span>
+    </div>
     <div id="TicketPriceDiv">
       Ticket Price: 
     <span id="TicketPrice"></span>      
@@ -44,7 +100,7 @@
         <p>Your purchase was not completed.</p>
         <p>You didn’t select any tickets. Please try again.</p>
     </div>
-</div>
+</div> -->
   
   <script type="module" src="movie.js"></script>
 

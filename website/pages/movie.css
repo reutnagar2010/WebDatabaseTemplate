@@ -1,192 +1,280 @@
+:root {
+  --color-1: #ebe6d1;
+  --color-2: #ebe6d1a7;
+  --color-3: #f0ede6;
+  --color-4: #a2a099;
+  --color-5: #5f5e5b;
+
+}
+
 body {
+  position: relative;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  width: 100vw;
+  height: 100dvh;
+  padding: 0;
   margin: 0;
   background-color: black;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #containerDiv {
-  height: 100vh;
+  flex: 1;
   position: relative;
-}
-
-#backgroundDiv {
-  position: fixed;
-  width: 639.5px;
   height: 100%;
-  z-index: 15;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+  z-index: 0;
 }
-
 #backgroundImg {
-  position: fixed;
   height: 100vh;
   width: auto;
   display: block;
-
+  z-index: 0;
 }
-
-#infoDiv {
-  position: fixed;
-  margin-left: 700px;
-  margin-top: 30px;
+#backgroundDiv {
+  position: absolute;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 1) 30%);
   top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  z-index: 1;
 }
 
+#mainContent {
+  color: aliceblue;
+  background-color: transparent;
+  flex: 1;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5vh;
+  position: relative;
+}
+#movieInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 2vh;
+}
 #title {
   color: white;
-  font-size: 100px;
-  text-shadow: 0 0 30px #fff;
+  font-size: 7vh;
+  text-shadow: 0 0 3vh #ffffffb3;
+  align-self: flex-start;
 }
-
-#description {
-  color: aliceblue;
-  font-size: 40px;
-  margin-top: 27px;
-}
-
-#Duration {
-  color: aliceblue;
-  font-size: 30px;
-  margin-top: 27px;
-}
-
-#Age {
-  color: aliceblue;
-  font-size: 30px;
-  margin-top: 27px;
-  margin-left: 30px;
-}
-
-#TicketPrice {
-  color: aliceblue;
-  font-size: 40px;
-  margin-top: 27px;
-}
-
-#TicketPriceDiv{
-  color: aliceblue;
-  font-size: 30px;
-  margin-top: 300px;
-}
-
-#TotalPrice {
-  color: aliceblue;
-  font-size: 40px;
-  margin-top: 27px;
-}
-
-#TotalPriceDiv{
-  color: aliceblue;
-  font-size: 30px;
-  margin-top: 10px;
-}
-
-.ChairButton {
-  width: 26px;
-  height: 69px;
-  padding: 26px;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  background: beige;
-  border: none;
-  cursor: pointer;
-  margin-top: 25px;
-}
-
-.ChairButton:hover {
-  background: rgb(122, 122, 111);
-  transform: translateY(-4px) scale(1.02);
-}
-
-.chosenChair {
-  background: rgb(122, 122, 111);
-}
-
-
-.rowDiv {
+#movieDetails {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  gap: 12px;
+  align-items: center;
+  width: 100%;
+  gap: 3.5vh;
+  font-size: 2.5vh;
 }
-
-#ChairDiv {
-  margin-top: -352px;
-  margin-left: 400px;
-  width: 620px;
-  background-color: rgba(240, 243, 230, 0.678);
+#description {
+  margin: 0 auto;
+  width: 75%;
+  font-size: 2.3vh;
+  text-align: center;
+}
+#movieChairs {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  gap: 1vh;
+}
+#chairsTitle {
+  font-size: 3vh;
+  text-shadow: 0 0 3vh #ffffffb3;
+}
+#instructions {
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  align-items: center;
+  gap: 1vh;
+}
+.instructionsTitle {
+  font-size: 2vh;
+  margin-right: 2vh;
+}
+.dotIcon {
+  width:  2vh;
+  height: 2vh;
+}
+#avaliableIcon {
+  fill: var(--color-3);
+  stroke: var(--color-3);
+} 
+#selectedIcon {
+  fill: var(--color-4);
+  stroke: var(--color-4);
+}
+#notAvaliableIcon {
+  fill: var(--color-5);
+  stroke: var(--color-5);
+}
+#chairDiv {
+  display: flex;;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3vh;
+  padding: 1.5vh 2vh 5vh 2vh;
+  margin: 1.5vh 0;
+  background-color: rgba(238, 236, 233, 0.781);
   border-bottom-left-radius: 40%;
   border-bottom-right-radius: 40%;
-  padding-bottom: 52px;
-  box-shadow: 0 0 30px #fff;
+   border-top-left-radius: 1.5vh;
+  border-top-right-radius: 1.5vh;
+  box-shadow: 0 0 25px #ffffffcc;
+}
+.rowDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  align-items: center;
+  gap: 1.5vh;
+}
+.rowNum {
+  padding-top: 1.5vh;
+  padding-right: 1vh;
+  font-size: 2vh;
+  font-weight: 700;
+  color: black;
+}
+.chairButton {
+  width: 6vh;
+  height: 6vh;
+  padding: 1vh 0 0 0;
+  font-size: 1.5vh;
+  font-weight: 500;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  background: var(--color-3);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 12px #00000023 ;
+  transition: all .15s ease;
+}
+.chairButton:hover {
+  background: var(--color-4);
+  scale: 1.1;
+}
+.chosenChair {
+  background: var(--color-4);
+  scale: 1.1;
+}
+.chairButton.notAvaliable {
+  color: rgb(44, 44, 44);
+  background-color: var(--color-5);
+  scale: 1;
+}
+.chairButton.notAvaliable:hover {
+  background: var(--color-5);
+  scale: 1;
+}
+#screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1vh;
+  width: 50%;
+  height: 2.5vh;
+  color: var(--color-3);
+  font-size: 2.5vh;
+  background-color: var(--color-5);
+  border-radius: 1vh;
+}
+#movieTickets {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+#prices {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1vh;
+  font-size: 3.5vh;
+}
+#buyButton {
+  background-color: transparent;
+  border: .25vh solid white;
+  border-radius: 2.5vh;
+  cursor: pointer;
+  color: white;
+  padding: 1vh;
+  margin: 0;
+  font-size: 4vh;
+  box-shadow: .4vh .4vh white;
+  transition: all .1s ease;
+}
+#buyButton:active {
+  color: rgb(184, 184, 184);
+  border: .25vh solid rgb(184, 184, 184);
+  box-shadow: 0 0 rgb(184, 184, 184);
+  transform: translate(.4vh, .4vh);
 }
 
-#SubmitButton{
-width: 300px;
-height: 70px;
-font-size: 50px;
-margin-top: -52px;
-margin-left: 20px;
-border: 0px;
-border-radius: 30px;
-background: rgba(205, 207, 196);
-box-shadow: 0 0 30px #fff;
+.modalBackground {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.7);
 }
-
 .modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.7);
-
-    justify-content: center;
-    align-items: center;
-
-    z-index: 1000;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1vh;
+  background-color: var(--color-5);
+  box-shadow: 0 0 3vh rgba(0, 0, 0, 0.5) ;
+  border-radius: 7vh;
+  padding: 5vh;
+  width:  40%;
+  height: 35%;
+  color: var(--color-3);
 }
-
-.modal.show {
-    display: flex;
+.closeButton {
+  position: absolute;
+  top: 1.5vh;
+  right: 3vh;
+  padding: 0;
+  font-size: 6vh;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
 }
-
-.modalContent {
-    background: rgba(205, 207, 196);
-    width: 600px;
-    height: 375px;
-
-    padding: 30px;
-    border-radius: 20px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    position: relative;
-
-    box-shadow: 0 20px 60px rgba(255, 255, 255, 0.4);
+.closeButton:hover {
+  color: var(--color-2);
 }
-
-.modalContent h2 {
-    font-size: 50px;
-    margin-bottom: 20px;
+.modal span {
+  font-size: 7vh;
 }
-
-.modalContent p {
-    font-size: 25px;
-    margin: 10px 0;
-}
-
-/* כפתור X */
-.closeBtn {
-    position: absolute;
-    top: 10px;
-    right: 25px;
-
-    font-size: 50px;
-    cursor: pointer;
-    font-weight: bold;
-    color: black;
-}
-
-.closeBtn:hover {
-    color: rgb(105, 9, 9);
+.modal p {
+  font-size: 3vh;
+  text-align: center;
 }

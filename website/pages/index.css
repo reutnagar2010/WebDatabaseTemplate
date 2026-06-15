@@ -42,22 +42,28 @@ body {
   font-family: "Abril Fatface", serif;
   font-size: 7vh;
 }
-#welcome-title{
+#welcome-title-container{
   font-family: "Abril Fatface", serif;
   margin-left: auto;
-  margin-right: 2vh;
+  margin-right: 1vh;
   font-size: 3vh;
+  display: flex;
+  flex-direction: row;
+
+  gap: 1vh;
 }
 #header a {
   text-decoration: none;
 }
 #header .button {
   color: var(--color-1);
+  background-color: transparent;
   font-size: 2.3vh;
   height: fit-content;
   border: 0.3vh solid var(--color-1);
   border-radius: 10px;
   padding: 5px;
+  cursor: pointer; 
 }
 #signup-button {
   margin-right: 1vh;
@@ -107,7 +113,6 @@ body {
 .movie-section .title {
   font-size: 4vh;
 }
-
 .movies-div{
   display: flex;
   flex-direction: row;
@@ -115,14 +120,34 @@ body {
   align-items: start;
   gap: 3vh;
 }
-
 .movieImg{
   height: 30vh;
   width: 20vh;
   border-radius: 20px;
   box-shadow:0 0 30px #000000;
 }
-
 .movieImg:hover{
   transform: translateY(-1vh) scale(1.02);
+}
+#addA {
+  color: white;
+  background-color: #c49a4b;
+  text-decoration: none;
+  width: 6vh;
+  height: 6vh;
+  border-radius: 6vh;
+  font-size: 40px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  right: 3vh;
+  bottom: 3vh;
+  transition: transform 0.18s ease;
+}
+.plusIcon{
+  width:  3vh;
+  height: 3vh;
+  margin: 1.5vh;
+  
 }

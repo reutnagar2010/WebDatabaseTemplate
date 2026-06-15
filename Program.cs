@@ -422,11 +422,26 @@ class Program
           request.Respond(userDetails.Token);
         }
 
-        // else if (request.Name == "addMovie")
-        // {
-        //   var (movieName, imageUrl, description, type, duration, age, year, ticketPrice) = request.GetParams<(string, string, string, int, int. int, int, int)>();
-        //   AddMovie(database, movieName, imageUrl, description, type, duration, age, year, ticketPrice);
-        // }
+        else if (request.Name == "getUser")
+        {
+          var token = request.GetParams<string?>();
+          var user = token == null ? null : database.Users.Where(u => u.Token == token).Select(u => new { u.Username, u.Token }).FirstOrDefault();
+          request.Respond(user);
+        }
+
+        else if (request.Name == "buyChair") {
+          var (chairNumber, movieId) = request.GetParams<(int, int)>();
+          buyChair(database, chairNumber, movieId);
+        }
+        else if (request.Name == "checkChair") {
+          var (chairNumber, movieId) = request.GetParams<(int, int)>();
+          request.Respond(checkChair(database, chairNumber, movieId));
+        }
+        else if (request.Name == "addMovie")
+        {
+          var (movieName, imageUrl, description, type, duration, age, year, ticketPrice) = request.GetParams<(string, string, string, int, int, int, int, int)>();
+          AddMovie(database, movieName, imageUrl, description, type, duration, age, year, ticketPrice);
+        }
       
       }
       catch (Exception exception)
@@ -437,12 +452,46 @@ class Program
     }
     
   }
-  // static void AddMovie(Database database, string name, string imageUrl, string description, int type, int duration, int age, int year, int ticketPrice)
-  // {
 
-  //   database.Movies.Add(new Movie(movieName, imageUrl, description, type, duration, age, year, ticketPrice));
-  //   database.SaveChanges(); 
-  // }
+  static void buyChair(Database database, int chairNumber, int movieId)
+  {
+    var movie = database.Movies.Find(movieId);
+    if (movie != null)
+    {
+      if (chairNumber >= 0 && chairNumber < movie.Chairs.Length)
+      {
+        movie.Chairs[chairNumber] = true;
+        database.Movies.Update(movie);
+        database.SaveChanges();
+      }
+      else
+      {
+          Console.WriteLine("Error: Invalid chair number.");
+      }
+    }
+    else
+    {
+        Console.WriteLine("Error: Movie not found.");
+    }
+  }
+
+   static bool checkChair(Database database, int chairNumber, int movieId)
+  {
+    var movie = database.Movies.Find(movieId);
+    if (movie != null && chairNumber >= 0 && chairNumber < movie.Chairs.Length)
+    {
+      return movie.Chairs[chairNumber];
+    }
+    return false; 
+  }
+  
+
+  static void AddMovie(Database database, string name, string imageUrl, string description, int type, int duration, int age, int year, int ticketPrice)
+  {
+    bool[] newChairs = new bool[30];
+    database.Movies.Add(new Movie(name, imageUrl, description, type, duration, age, year, ticketPrice, newChairs));
+    database.SaveChanges(); 
+  }
 
 
 class Database() : DatabaseCore("database")
