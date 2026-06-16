@@ -45,7 +45,7 @@ for (let i = 0; i < 4; i++) {
 
     const rowDiv = create("div", { className: "rowDiv" , id: `rowDiv${String(i+1)}`});
     const rowNum = create("span", { className: "rowNum" });
-    rowNum.innerText = "Row " + String(i + 1);
+    rowNum.innerText = "Row " + String(4 - i);
     rowDiv.append(rowNum);
     chairDiv.append(rowDiv);
 
@@ -56,7 +56,7 @@ for (let i = 0; i < 4; i++) {
         if (await isTaken == false) {
             const chair = create("button", { className: "chairButton", id: `chairButton${String(currentChairIndex+1)}` });
             
-            chair.innerText = String(currentChairIndex + 1);
+            chair.innerText = String(30 - currentChairIndex);
 
             chair.onclick = function () {
                 const index = chosenChairs.indexOf(currentChairIndex);

@@ -1,16 +1,90 @@
-#containerDiv {
+:root {
+  --color-1: #ebe6d1;
+  --color-2: #c7c2ad;
+}
+
+body {
+  color: var(--color-1);
+  position: relative;
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  gap: 5vh;
+  height: 100dvh;
 }
 
-h1 {
-  font-size: 100px;
-  margin-bottom: 0px;
+.background {
+  background-image: url(https://i.pinimg.com/1200x/2e/18/26/2e1826e208db124512de8617d47027fd.jpg);
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  z-index: -1;
 }
 
-h2 {
-  font-size: 50px;
-  margin-top: 0px;
+.name {
+  position: absolute;
+  top: 1vh;
+  left: 1vh;
+  font-family: "Abril Fatface", serif;
+  font-size: 7vh;
 }
 
+.eyes-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5vh;
+}
+.eye {
+  position: relative;
+  width:  50vh;
+  height: 50vh;
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3vh;
+}
+.title {
+  font-size: 8vh;
+}
+a {
+  text-decoration: none;
+  color: var(--color-2);
+  background-color: black;
+  font-size: 4vh;
+  font-weight: 600;
+  height: fit-content;
+  border: 0.5vh solid var(--color-2);
+  border-radius: 4vh;
+  padding: 1vh 2vh;
+  cursor: pointer; 
+  transition: all .15s ease;
+}
+a:hover {
+  color: black;
+  border-color: black;
+  background-color: var(--color-1);
+}
