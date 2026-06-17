@@ -453,6 +453,39 @@ class Program
           AddMovie(database, movieName, imageUrl, type, duration, age, year, ticketPrice, description);
           request.Respond(true);
         }
+        else if (request.Name == "getMyTickets")
+        {
+          string token = request.GetParams<string>();
+          var user = database.Users.Include(u => u.Tickets).FirstOrDefault(u => u.Token == token);
+          if (user != null)
+          {
+            request.Respond(user.Tickets);
+          }
+          else
+          {
+            request.Respond(new List<Ticket>());
+          }
+        }
+        else if (request.Name == "removeTicket")
+        {
+          var ticketId = request.GetParams<string>();
+          var ticketToRemove = database.Tickets.FirstOrDefault(t => t.Id == int.Parse(ticketId));
+          if (ticketToRemove != null)
+          {
+            var movieToRemoveFrom = database.Movies.Find(ticketToRemove.MovieId);
+            if (movieToRemoveFrom != null)
+            {
+              movieToRemoveFrom.Chairs[ticketToRemove.ChairNum] = false;
+            }
+            database.Tickets.Remove(ticketToRemove);
+            database.SaveChanges();
+            request.Respond(true);
+          }
+          else
+          {
+              request.Respond(false);
+          }
+        }
       }
       catch (Exception exception)
       {
