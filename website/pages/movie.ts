@@ -85,7 +85,7 @@ for (let i = 0; i < 4; i++) {
         }
         else {
             const chair = create("button", { className: "chairButton notAvaliable", id: `chairButton${String(currentChairIndex+1)}` });
-            chair.innerText = String(currentChairIndex + 1);
+            chair.innerText = String(30 - currentChairIndex);
             rowDiv.append(chair);
             chairIndex++;
         }
@@ -111,11 +111,20 @@ buyButton.onclick = function () {
 }
 
 async function buyChair(chairNumber:number) {
-    const chair = get("button", `chairButton${String(chairNumber+1)}`)
+    const chair = get("button", `chairButton${String(chairNumber+1)}`);
+    
+    const token = localStorage.getItem("token"); 
+
+    if (!token) {
+        location.href = "login.html";
+        return; 
+    }
+
     chair.classList.add("notAvaliable");
     chair.onclick = null;
     chair.disabled = true;
-    await send("buyChair",chairNumber, movieId);
+    
+    await send("buyChair", chairNumber, movieId, token);
 }
 
 async function checkChair(chairNumber:number) {
@@ -128,28 +137,6 @@ successCloseButton.onclick = function () {
 failCloseButton.onclick = function () {
     modalBackground.style.display = 'none';
 }
-
-// buyButton.onclick = function () {
-//     if (totalPrice == 0) {
-//         successModal.classList.remove("show");
-//         failModal.classList.add("show");
-//         return;
-//     }
-
-//     failModal.classList.remove("show");
-//     successModal.classList.add("show");
-
-//     totalPrice = 0;
-//     TotalPrice.textContent = "0₪";
-// };
-
-// closeModal.onclick = function () {
-//     successModal.classList.remove("show");
-// };
-
-// closeFailModal.onclick = function () {
-//     failModal.classList.remove("show");
-// };
 
 function typeToString(value: number) {
     if (value === 1) {return '';}

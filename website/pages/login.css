@@ -48,15 +48,6 @@ input {
   border: 1px solid #ccc;
   font-size: 2.2vh;
 }
-button {
-  width: 100%;
-  padding: 10px;
-  background: #a11414;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
 #submitButton {
   width: 100%;
   padding: 1vh;
@@ -67,7 +58,7 @@ button {
   border-radius: 8px;
   cursor: pointer;
 }
-button:hover {
+#submitButton:hover {
   background: #5a0c0c;
 }
 a {

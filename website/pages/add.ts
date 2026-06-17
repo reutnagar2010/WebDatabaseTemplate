@@ -1,38 +1,41 @@
 import { send } from "clientUtilities";
-import { create, get } from "componentUtilities";
-import { Movie, User } from "types";
+import { get } from "componentUtilities";
 
-var movieNameInput = get("input", "movieNameInput");
-var durationInput = get("input", "durationInput");
-var ageInput = get("input", "ageInput");
-var imgUrlInput = get("input", "imgUrlInput");
-var ticketPriceInput = get("input", "ticketPriceInput");
-var descriptionTextarea = get("textarea", "descriptionTextarea");
-var submitButton = get("button", "submitButton");
-var errorDiv = get("div", "errorDiv");
-var yearInput = get("input", "yearInput");
-var typeInput = get("select", "typeInput");
-
-var token = localStorage.getItem("token");
-var user = await send<User | null>("getUser", token);
+const nameInput = get("input", "name-input");
+const imageInput = get("input", "image-input");
+const typeInput = get("select", "type-input");
+const durationInput = get("input", "duration-input");
+const ageInput = get("input", "age-input");
+const yearInput = get("input", "year-input");
+const priceInput = get("input", "price-input");
+const descriptionInput = get("input", "description-input");
+const submitButton = get("button", "submit-button");
+const errorDiv = get("div", "errorDiv");
 
 submitButton.onclick = async function () {
-  var movieName = movieNameInput.value.trim();
+
+  var name = nameInput.value.trim();
+  var image = imageInput.value.trim();
+  var type = parseInt(typeInput.value);
   var duration = durationInput.value.trim();
-  var imageUrl = imgUrlInput.value.trim();
   var age = ageInput.value.trim();
-  var ticketPrice = ticketPriceInput.value.trim();
-  var description = descriptionTextarea.value.trim();
   var year = yearInput.value.trim();
-  var type = typeInput.value;
+  var price = priceInput.value.trim();
+  var description = descriptionInput.value.trim();
 
-  if (movieName == "" || imageUrl == "" || description == "" || type == "0" || duration == "" || age == "" || year == "" || ticketPrice == "") {
-    errorDiv.innerText = "All fields are required. Please make sure to select a genre.";
-    return;
+  if (
+    name !== '' &&
+    image !== '' &&
+    type !== -1 && !isNaN(type) &&
+    duration !== '' &&
+    age !== '' &&
+    year !== '' &&
+    price !== '' &&
+    description !== ''
+  ) {
+    await send("addMovie", name, image, type.toString(), duration, age, year, price, description);
+  } 
+  else {
+    errorDiv.innerText = "One or more fields are empty or invalid.";
   }
-  errorDiv.innerText = "";
-
-  await send("addMovie", String(movieName), imageUrl, description, parseInt(type), parseInt(duration), parseInt(age), parseInt(year), parseInt(ticketPrice));
-
-  location.href = "index.html";
 }

@@ -1,6 +1,7 @@
 :root {
   --color-1: #ebe6d1;
   --color-2: #ebe6d1a7;
+  --color-3: #817a62;
 }
 
 body {
@@ -49,7 +50,7 @@ body {
   font-size: 3vh;
   display: flex;
   flex-direction: row;
-
+  align-items: center;
   gap: 1vh;
 }
 #header a {
@@ -65,8 +66,32 @@ body {
   padding: 5px;
   cursor: pointer; 
 }
+#header .button:hover {
+  color: var(--color-3);
+  background-color: transparent;
+  font-size: 2.3vh;
+  height: fit-content;
+  border: 0.3vh solid var(--color-3);
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer; 
+}
 #signup-button {
   margin-right: 1vh;
+}
+#mune-button {
+  display: none;
+  color: var(--color-1);
+  background-color: transparent;
+  font-size: 2.3vh;
+  height: fit-content;
+  border: 0.3vh solid var(--color-1);
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer; 
+  flex-direction: row;
+  align-items: center;
+  gap: 1vh;
 }
 #main-screen {
   height: fit-content;
@@ -138,7 +163,23 @@ body {
   border-radius: 6vh;
   font-size: 40px;
   font-weight: 600;
-  display: flex;
+  display: none;
+  justify-content: center;
+  position: fixed;
+  right: 3vh;
+  bottom: 3vh;
+  transition: transform 0.18s ease;
+}
+#addA:hover {
+  color: white;
+  background-color: #695228;
+  text-decoration: none;
+  width: 6vh;
+  height: 6vh;
+  border-radius: 6vh;
+  font-size: 40px;
+  font-weight: 600;
+  display: none;
   justify-content: center;
   position: fixed;
   right: 3vh;

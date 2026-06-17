@@ -12,6 +12,8 @@ const familyMoviesDiv = get("div", "family-movies-div");
 const horrorMoviesDiv = get("div", "horror-movies-div");
 const signupButton = get("a", "signup-button");
 const loginButton = get("a", "login-button");
+const addButton = get("a", "addA");
+const menuButton = get("button", "mune-button")
 
 async function login () {
   welcomeTitleContainer.innerHTML = "";
@@ -20,6 +22,12 @@ async function login () {
   console.log(UserName);
 
   if ((token != null || token != '') && UserName != null) {
+    console.log(UserName);
+    if (UserName.username == 'reut') {
+      addButton.style.display = "flex";
+    }
+    menuButton.style.display = "flex"
+
     signupButton.style.display = "none";
     loginButton.style.display = "none";
 
@@ -38,6 +46,8 @@ async function login () {
   else {
     signupButton.style.display = "block";
     loginButton.style.display = "block";
+    menuButton.style.display = "none"
+    addButton.style.display = "none"
 
     const welcomeTitle = create("span");
     welcomeTitle.innerText = "guest";

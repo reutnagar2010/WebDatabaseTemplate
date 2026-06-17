@@ -15,3 +15,9 @@ export type User = {
   username: string,
   password: string,
 }
+
+export type Ticket = {
+  id: string,
+  movieId: number,
+  chairNum: number,
+};

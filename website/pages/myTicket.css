@@ -1,0 +1,130 @@
+:root {
+  --color-1: #ebe6d1;
+  --color-2: #ebe6d1a7;
+  --color-3: #817a62;
+}
+body {
+  font-family: Arial;
+  color: var(--color-1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-self: start;
+  align-items: start;
+  margin: 0;
+  padding: 5%;
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  gap: 10vh;
+}
+.background {
+  background-image: url(https://i.pinimg.com/1200x/2e/18/26/2e1826e208db124512de8617d47027fd.jpg);
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  z-index: -1
+}
+.back-button {
+  text-decoration: none;
+  position: absolute;
+  top: 2vh;
+  left: 2vh;
+  color: var(--color-1);
+  font-size: 3vh;
+  height: fit-content;
+  border: 2px solid var(--color-1);
+  border-radius: 10px;
+  padding: 5px;
+}
+.title {
+  font-family: "Abril Fatface", serif;
+  font-weight: 700;
+  margin: 0 auto 0 auto;
+  font-size: 10vh;
+  
+}
+.ticket-card {
+  background-color: var(--color-2);
+  color:black;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  height: 30vh;
+  padding: 3vh;
+  border-radius: 3vh;
+}
+.movie-img{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.movieImg{
+  height: 100%;
+  border-radius: 20px;
+  box-shadow:0 0 30px #000000;
+}
+.ticket-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 4vh 7vh 2vh 4vh;
+}
+.movie-name{
+  font-size: 5vh;
+  font-weight: 600; 
+}
+.chair-num {
+  font-size: 3vh;
+
+}
+.remove-button {
+  width: 100%;
+  padding: 1vh;
+  font-size: 2vh;
+  margin-top: auto;
+  background: #a11414;
+  color: var(--color-1);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.remove-button:hover {
+  background: #5a0c0c;
+}
+.ticket-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.dots-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4vh;
+}
+.tally-icon {
+  fill:none;
+  height: 4.3vh;
+  width: 4.3vh;
+  margin-right: 4vh;
+}

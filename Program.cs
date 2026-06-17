@@ -11,6 +11,7 @@ using Microsoft.VisualBasic;
 using Project.DatabaseUtilities;
 using Project.LoggingUtilities;
 using Project.ServerUtilities;
+using System.Collections.Generic;
 
 class Program
 {
@@ -26,7 +27,9 @@ class Program
     Console.WriteLine($"Network: http://{Network.GetLocalNetworkIPAddress()}:{port}/website/pages/index.html");
 
     if (database.IsNewlyCreated)
-    {
+    { 
+      database.Users.Add(new User ("nagar2010","reut", "123"));
+
       database.Movies.Add(new Movie(
         "MEAN GIRLS", 
         "https://www.movieposters.com/cdn/shop/files/meangirls.24x36_1024x1024.jpg?v=1762968678", 
@@ -421,17 +424,16 @@ class Program
           }
           request.Respond(userDetails.Token);
         }
-
         else if (request.Name == "getUser")
         {
           var token = request.GetParams<string?>();
           var user = token == null ? null : database.Users.Where(u => u.Token == token).Select(u => new { u.Username, u.Token }).FirstOrDefault();
           request.Respond(user);
         }
-
         else if (request.Name == "buyChair") {
-          var (chairNumber, movieId) = request.GetParams<(int, int)>();
-          buyChair(database, chairNumber, movieId);
+          var (chairNumber, movieId, token) = request.GetParams<(int, int, string)>();
+          bool success = buyChair(database, chairNumber, movieId, token);
+          request.Respond(success);
         }
         else if (request.Name == "checkChair") {
           var (chairNumber, movieId) = request.GetParams<(int, int)>();
@@ -439,10 +441,18 @@ class Program
         }
         else if (request.Name == "addMovie")
         {
-          var (movieName, imageUrl, description, type, duration, age, year, ticketPrice) = request.GetParams<(string, string, string, int, int, int, int, int)>();
-          AddMovie(database, movieName, imageUrl, description, type, duration, age, year, ticketPrice);
+          var args = request.GetParams<string[]>();
+          string movieName = args[0];
+          string imageUrl = args[1];
+          int type = int.Parse(args[2]);
+          int duration = int.Parse(args[3]);
+          int age = int.Parse(args[4]);
+          int year = int.Parse(args[5]);
+          int ticketPrice = int.Parse(args[6]);
+          string description = args[7];
+          AddMovie(database, movieName, imageUrl, type, duration, age, year, ticketPrice, description);
+          request.Respond(true);
         }
-      
       }
       catch (Exception exception)
       {
@@ -453,25 +463,31 @@ class Program
     
   }
 
-  static void buyChair(Database database, int chairNumber, int movieId)
+  static bool buyChair(Database database, int chairNumber, int movieId, string token)
   {
     var movie = database.Movies.Find(movieId);
-    if (movie != null)
+    var user = database.Users.Include(u => u.Tickets).FirstOrDefault(u => u.Token == token);
+
+    if (movie == null || user == null)
     {
-      if (chairNumber >= 0 && chairNumber < movie.Chairs.Length)
-      {
-        movie.Chairs[chairNumber] = true;
-        database.Movies.Update(movie);
-        database.SaveChanges();
-      }
-      else
-      {
-          Console.WriteLine("Error: Invalid chair number.");
-      }
+        Console.WriteLine("Error: Movie or User not found.");
+        return false; 
+    }
+    if (chairNumber >= 0 && chairNumber < movie.Chairs.Length && movie.Chairs[chairNumber] == false)
+    {
+      movie.Chairs[chairNumber] = true;
+      database.Movies.Update(movie);
+
+      var newTicket = new Ticket(movieId, chairNumber);
+      user.Tickets.Add(newTicket);
+
+      database.SaveChanges();
+      return true;
     }
     else
     {
-        Console.WriteLine("Error: Movie not found.");
+      Console.WriteLine("Error: Invalid chair number or chair is already taken.");
+      return false;
     }
   }
 
@@ -486,7 +502,7 @@ class Program
   }
   
 
-  static void AddMovie(Database database, string name, string imageUrl, string description, int type, int duration, int age, int year, int ticketPrice)
+  static void AddMovie(Database database, string name, string imageUrl, int type, int duration, int age, int year, int ticketPrice, string description)
   {
     bool[] newChairs = new bool[30];
     database.Movies.Add(new Movie(name, imageUrl, description, type, duration, age, year, ticketPrice, newChairs));
@@ -498,6 +514,7 @@ class Database() : DatabaseCore("database")
 {
   public DbSet<Movie> Movies { get; set; } = default!;
   public DbSet<User> Users { get; set; } = default!;
+  public DbSet<Ticket> Tickets { get; set; } = default!;
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
@@ -530,9 +547,16 @@ class Movie(string name, string imageUrl, string description, int type, int dura
 class User(string token, string username, string password)
 {
   public int Id { get; set; } = default!;
-   public string Token { get; set; } = token;
+  public string Token { get; set; } = token;
   public string Username { get; set; } = username;
   public string Password { get; set; } = password;
+  public List<Ticket> Tickets { get; set; } = new List<Ticket>(); 
 }
 
+class Ticket(int movieId, int chairNum)
+  {
+    public int Id { get; set; } = default!;
+    public int MovieId { get; set; } = movieId;
+    public int ChairNum { get; set; } = chairNum;
+  }
 }
