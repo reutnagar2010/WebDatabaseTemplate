@@ -385,7 +385,7 @@ class Program
       {
         if (request.Name == "getMovies")
         {
-          request.Respond(database.Movies);
+          request.Respond(database.Movies); 
         }
         else if (request.Name == "getMovie")
         {

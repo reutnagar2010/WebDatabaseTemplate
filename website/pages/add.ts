@@ -34,6 +34,7 @@ submitButton.onclick = async function () {
     description !== ''
   ) {
     await send("addMovie", name, image, type.toString(), duration, age, year, price, description);
+    location.href = "index.html";
   } 
   else {
     errorDiv.innerText = "One or more fields are empty or invalid.";
