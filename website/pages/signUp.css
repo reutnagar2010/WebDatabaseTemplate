@@ -73,6 +73,7 @@ a {
 }
 .back-button {
   position: absolute;
+  text-decoration: none;
   top: 2vh;
   left: 2vh;
   color: var(--color-1);

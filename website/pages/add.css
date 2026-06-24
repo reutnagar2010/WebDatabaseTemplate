@@ -145,3 +145,15 @@ button:hover {
   font-size: 2vh;
   color:rgb(255, 0, 0);
 }
+.back-button {
+  position: absolute;
+  text-decoration: none;
+  top: 2vh;
+  left: 2vh;
+  color: var(--color-1);
+  font-size: 3vh;
+  height: fit-content;
+  border: 2px solid var(--color-1);
+  border-radius: 10px;
+  padding: 5px;
+}
